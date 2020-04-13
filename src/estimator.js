@@ -24,12 +24,18 @@ const covid19ImpactEstimator = () => {
   function periodTypeMode(params) {
     const { periodType, timeToElapse } = params;
     let dateMode;
-    if (periodType.toLowerCase() === 'months') {
-      dateMode = (timeToElapse * 30);
-    } else if (periodType.toLowerCase() === 'weeks') {
-      dateMode = (timeToElapse * 7);
-    } else if (periodType.toLowerCase() === 'days') {
-      dateMode = (timeToElapse);
+    switch (periodType.toLowerCase()) {
+      case 'days':
+        dateMode = timeToElapse;
+        break;
+      case 'weeks':
+        dateMode = timeToElapse * 7;
+        break;
+      case 'month':
+        dateMode = timeToElapse * 30;
+        break;
+      default:
+        dateMode = timeToElapse;
     }
     return dateMode;
   }
