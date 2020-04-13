@@ -13,6 +13,10 @@ const data = {
   totalHospitalBeds: 1380614
 };
 
+// Currently infected
+const currentlyInfected1 = data.reportedCases * 10;
+const currentlyInfected2 = data.reportedCase * 50;
+
 // Function to output the date entry mode
 function periodTypeMode() {
   let dateMode;
@@ -31,14 +35,14 @@ const calc = Math.trunc(2 ** periodTypeMode());
 
 // Impact data calculations
 const impact = {
-  currentlyInfected: data.reportedCases * 10,
+  currentlyInfected: currentlyInfected1,
   infectedByRequestedTime: this.currentlyInfected * calc
 
 };
 
 // SevereImpact Data Output
 const severeImpact = {
-  currentlyInfected: data.reportedCases * 50,
+  currentlyInfected: currentlyInfected2,
   infectedByRequestedTime: this.currentlyInfected * calc
 
 };
