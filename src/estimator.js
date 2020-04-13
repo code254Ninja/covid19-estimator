@@ -13,7 +13,7 @@ const data = {
   totalHospitalBeds: 1380614
 };
 
-const newPeriodType = JSON.parse(data.periodType);
+const newPeriodType = JSON.stringify(data.periodType);
 // Currently infected
 const currentlyInfected1 = data.reportedCases * 10;
 const currentlyInfected2 = data.reportedCases * 50;
