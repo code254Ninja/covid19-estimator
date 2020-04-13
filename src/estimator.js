@@ -31,19 +31,20 @@ function periodTypeMode() {
 }
 
 // Calculation for infected by the requested time
-const calc = Math.trunc(2 ** periodTypeMode());
+const calc1 = Math.trunc(currentlyInfected1 * (2 ** periodTypeMode()));
+const calc2 = Math.trunc(currentlyInfected2 * (2 ** periodTypeMode()));
 
 // Impact data calculations
 const impact = {
   currentlyInfected: currentlyInfected1,
-  infectedByRequestedTime: this.currentlyInfected * calc
+  infectedByRequestedTime: calc1
 
 };
 
 // SevereImpact Data Output
 const severeImpact = {
   currentlyInfected: currentlyInfected2,
-  infectedByRequestedTime: this.currentlyInfected * calc
+  infectedByRequestedTime: calc2
 
 };
 // All the data will be output in this function
