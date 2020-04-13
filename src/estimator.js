@@ -18,8 +18,8 @@ const currentlyInfected1 = data.reportedCases * 10;
 const currentlyInfected2 = data.reportedCases * 50;
 
 // Function to output the date entry mode
-const periodTypeMode = () => {
-  let dateMode = '';
+function periodTypeMode() {
+  let dateMode;
   if (data.periodType.toLowerCase === 'months') {
     dateMode = Math.trunc((data.timeToElapse * 30) / 3);
   } else if (data.periodType.toLowerCase === 'weeks') {
@@ -28,11 +28,11 @@ const periodTypeMode = () => {
     dateMode = Math.trunc(data.timeToElapse / 3);
   }
   return dateMode;
-};
+}
 
 // Calculation for infected by the requested time
-const calc1 = Math.trunc(currentlyInfected1 * (2 ** periodTypeMode(data)));
-const calc2 = Math.trunc(currentlyInfected2 * (2 ** periodTypeMode(data)));
+const calc1 = Math.trunc(currentlyInfected1 * (2 ** periodTypeMode(data.periodType)));
+const calc2 = Math.trunc(currentlyInfected2 * (2 ** periodTypeMode(data.periodType)));
 
 // Impact data calculations
 const impact = {
