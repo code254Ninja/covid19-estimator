@@ -18,14 +18,14 @@ const currentlyInfected1 = data.reportedCases * 10;
 const currentlyInfected2 = data.reportedCases * 50;
 
 // Function to output the date entry mode
-function periodTypeMode() {
+function periodTypeMode(periodType, timeToElapse) {
   let dateMode;
-  if (data.periodType === 'months') {
-    dateMode = Math.trunc((data.timeToElapse * 30) / 3);
-  } else if (data.periodType === 'weeks') {
-    dateMode = Math.trunc((data.timeToElapse * 7) / 3);
-  } else if (data.periodType === 'days') {
-    dateMode = Math.trunc(data.timeToElapse / 3);
+  if (periodType === 'months') {
+    dateMode = Math.trunc((timeToElapse * 30) / 3);
+  } else if (periodType === 'weeks') {
+    dateMode = Math.trunc((timeToElapse * 7) / 3);
+  } else if (periodType === 'days') {
+    dateMode = Math.trunc(timeToElapse / 3);
   }
   return dateMode;
 }
