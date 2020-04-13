@@ -41,8 +41,8 @@ const covid19ImpactEstimator = () => {
   }
 
   // Calculation for infected by the requested time
-  const calc1 = currentlyInfected1 * Math.trunc(((2 ** periodTypeMode(data)) / 3));
-  const calc2 = currentlyInfected2 * Math.trunc(((2 ** periodTypeMode(data)) / 3));
+  const calc1 = currentlyInfected1 * Math.trunc(((2 ** periodTypeMode()) / 3));
+  const calc2 = currentlyInfected2 * Math.trunc(((2 ** periodTypeMode()) / 3));
 
   // Impact data calculations
   const impact = {
