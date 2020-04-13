@@ -15,7 +15,7 @@ const data = {
 
 // Currently infected
 const currentlyInfected1 = data.reportedCases * 10;
-const currentlyInfected2 = data.reportedCase * 50;
+const currentlyInfected2 = data.reportedCases * 50;
 
 // Function to output the date entry mode
 function periodTypeMode() {
