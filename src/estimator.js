@@ -22,11 +22,11 @@ const currentlyInfected2 = data.reportedCases * 50;
 function periodTypeMode() {
   const newPeriodType = JSON.stringify(data.periodType);
   let dateMode;
-  if (newPeriodType.toLowerCase() === 'months') {
+  if (newPeriodType.toLowerCase === 'months') {
     dateMode = Math.trunc((data.timeToElapse * 30) / 3);
-  } else if (newPeriodType.toLowerCase() === 'weeks') {
+  } else if (newPeriodType.toLowerCase === 'weeks') {
     dateMode = Math.trunc((data.timeToElapse * 7) / 3);
-  } else if (newPeriodType.toLowerCase() === 'days') {
+  } else if (newPeriodType.toLowerCase === 'days') {
     dateMode = Math.trunc(data.timeToElapse / 3);
   }
   return dateMode;
