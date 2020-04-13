@@ -15,28 +15,28 @@ const data = {
 
 // All the data will be output in this function
 const covid19ImpactEstimator = () => {
-  const { periodType, reportedCases, timeToElapse } = data;
+  const { reportedCases } = data;
   // Currently infected
   const currentlyInfected1 = reportedCases * 10;
   const currentlyInfected2 = reportedCases * 50;
 
   // Function to output the date entry mode
-  function periodTypeMode() {
-    const newPeriodType = JSON.stringify(periodType);
+  function periodTypeMode(params) {
+    const { periodType, timeToElapse } = params;
     let dateMode;
-    if (newPeriodType.toLowerCase() === 'months') {
-      dateMode = Math.trunc((timeToElapse * 30) / 3);
-    } else if (newPeriodType.toLowerCase() === 'weeks') {
-      dateMode = Math.trunc((timeToElapse * 7) / 3);
-    } else if (newPeriodType.toLowerCase() === 'days') {
-      dateMode = Math.trunc(timeToElapse / 3);
+    if (periodType.toLowerCase() === 'months') {
+      dateMode = (timeToElapse * 30);
+    } else if (periodType.toLowerCase() === 'weeks') {
+      dateMode = (timeToElapse * 7);
+    } else if (periodType.toLowerCase() === 'days') {
+      dateMode = (timeToElapse);
     }
     return dateMode;
   }
 
   // Calculation for infected by the requested time
-  const calc1 = Math.trunc(currentlyInfected1 * (2 ** periodTypeMode()));
-  const calc2 = Math.trunc(currentlyInfected2 * (2 ** periodTypeMode()));
+  const calc1 = currentlyInfected1 * Math.trunc(((2 ** periodTypeMode(data)) / 3));
+  const calc2 = currentlyInfected2 * Math.trunc(((2 ** periodTypeMode(data)) / 3));
 
   // Impact data calculations
   const impact = {
