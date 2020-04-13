@@ -26,8 +26,6 @@ const periodTypeMode = () => {
     dateMode = Math.trunc((data.timeToElapse * 7) / 3);
   } else if (data.periodType.toLowerCase === 'days') {
     dateMode = Math.trunc(data.timeToElapse / 3);
-  } else {
-    dateMode = 0;
   }
   return dateMode;
 };
