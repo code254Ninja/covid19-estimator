@@ -13,13 +13,14 @@ const data = {
   totalHospitalBeds: 1380614
 };
 
-const newPeriodType = JSON.stringify(data.periodType);
+
 // Currently infected
 const currentlyInfected1 = data.reportedCases * 10;
 const currentlyInfected2 = data.reportedCases * 50;
 
 // Function to output the date entry mode
 function periodTypeMode() {
+  const newPeriodType = JSON.stringify(data.periodType);
   let dateMode;
   if (newPeriodType.toLowerCase() === 'months') {
     dateMode = Math.trunc((data.timeToElapse * 30) / 3);
