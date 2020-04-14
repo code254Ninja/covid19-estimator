@@ -24,7 +24,8 @@ severeImpact.currentlyInfected = reportedCases * 50;
 // Function to output the date entry mode
 const dateModeType = (periodType, timeToElapse) => {
   let dateMode;
-  switch (periodType.toLowerCase()) {
+  const periodType1 = periodType.toLowerCase();
+  switch (periodType1) {
     case 'days':
       dateMode = timeToElapse;
       break;
