@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+
   ],
   globals: {
     Atomics: 'readonly',
@@ -20,4 +21,7 @@ module.exports = {
     "comma-dangle": ["error", "never"],
     "no-param-reassign": ["error", { "props": false }]
   },
+  
+
+
 };
