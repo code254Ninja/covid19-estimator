@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // This is the input data
 const data = {
   region: {
@@ -15,32 +16,33 @@ const data = {
 const impact = {};
 const severeImpact = {};
 
-const { reportedCases, periodType, timeToElapse } = data;
+const { reportedCases } = data;
 // Currently infected
 impact.currentlyInfected = reportedCases * 10;
 severeImpact.currentlyInfected = reportedCases * 50;
 
 // Function to output the date entry mode
+const dateModeType = (periodType, timeToElapse) => {
+  let dateMode;
+  switch (periodType.toLowerCase()) {
+    case 'days':
+      dateMode = timeToElapse;
+      break;
+    case 'weeks':
+      dateMode = timeToElapse * 7;
+      break;
+    case 'month':
+      dateMode = timeToElapse * 30;
+      break;
+    default:
+      dateMode = timeToElapse;
+  }
+  return dateMode;
+};
 
 
-let dateMode;
-switch (periodType.toLowerCase()) {
-  case 'days':
-    dateMode = timeToElapse;
-    break;
-  case 'weeks':
-    dateMode = timeToElapse * 7;
-    break;
-  case 'month':
-    dateMode = timeToElapse * 30;
-    break;
-  default:
-    dateMode = timeToElapse;
-}
-
-
-impact.infectedByRequestedTime = Math.trunc(reportedCases * 10 * (2 ** (dateMode / 3)));
-severeImpact.infectedByRequestedTime = Math.trunc(reportedCases * 50 * (2 ** (dateMode / 3)));
+impact.infectedByRequestedTime = Math.trunc(reportedCases * 10 * (2 ** (dateModeType(data)) / 3));
+severeImpact.infectedByRequestedTime = Math.trunc(reportedCases * 50 * (2 ** (dateModeType(data)) / 3));
 
 
 // Calculation for infected by the requested ti
